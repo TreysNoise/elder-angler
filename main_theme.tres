@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c2ytempkownqv"]
+
+[ext_resource type="FontFile" uid="uid://dafr4ulr7nogh" path="res://assets/other/PressStart2P-vaV7.ttf" id="1_g7ehe"]
+[ext_resource type="StyleBox" uid="uid://del10nlai1e3u" path="res://button_hover.tres" id="2_1ara1"]
+[ext_resource type="StyleBox" uid="uid://c0oob7ireh27b" path="res://button_default.tres" id="2_qnq8l"]
+[ext_resource type="StyleBox" uid="uid://c0nvewxv5j1qt" path="res://button_pressed.tres" id="4_2k0hg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6bw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krkem"]
+bg_color = Color(1, 0.984314, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[resource]
+Button/fonts/font = ExtResource("1_g7ehe")
+Button/styles/hover = ExtResource("2_1ara1")
+Button/styles/normal = ExtResource("2_qnq8l")
+Button/styles/pressed = ExtResource("4_2k0hg")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_v6bw1")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_krkem")

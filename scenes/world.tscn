@@ -1,0 +1,300 @@
+[gd_scene load_steps=17 format=3 uid="uid://daf42xigp3ckt"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_b3ub5"]
+[ext_resource type="PackedScene" uid="uid://dxm01pqxlydlv" path="res://entities/angler/angler.tscn" id="1_ci3d8"]
+[ext_resource type="Script" path="res://scripts/shrimp_spawner.gd" id="3_a6eh5"]
+[ext_resource type="PackedScene" uid="uid://bb3rnwefj8cnf" path="res://entities/vent/vent.tscn" id="4_8bc14"]
+[ext_resource type="Shader" path="res://assets/shaders/underwater.gdshader" id="4_hgenk"]
+[ext_resource type="FontFile" uid="uid://dafr4ulr7nogh" path="res://assets/other/PressStart2P-vaV7.ttf" id="4_khd1u"]
+[ext_resource type="Theme" uid="uid://c2ytempkownqv" path="res://main_theme.tres" id="4_o0j2m"]
+[ext_resource type="PackedScene" uid="uid://cf5stmxu2ra7p" path="res://scenes/land.tscn" id="5_7i2g1"]
+[ext_resource type="AudioStream" uid="uid://ctv01d53w2yy" path="res://assets/audio/underwater-loop-amb-6182.mp3" id="9_q5nf6"]
+[ext_resource type="PackedScene" uid="uid://brjc4kiftof42" path="res://scenes/fps_counter.tscn" id="9_w6rn0"]
+[ext_resource type="PackedScene" uid="uid://cbrk4detviko3" path="res://entities/jellyfish/jellyfish.tscn" id="11_pw7ql"]
+
+[sub_resource type="Environment" id="Environment_wrhpg"]
+background_mode = 1
+background_color = Color(0, 0, 0.247059, 1)
+fog_enabled = true
+fog_light_color = Color(0, 0.0235294, 0.223529, 1)
+fog_light_energy = 0.5
+fog_density = 0.05
+
+[sub_resource type="LabelSettings" id="LabelSettings_87h35"]
+font = ExtResource("4_khd1u")
+font_size = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0ht5"]
+render_priority = 0
+shader = ExtResource("4_hgenk")
+shader_parameter/tint = null
+shader_parameter/wave_speed = 3.0
+shader_parameter/wave_freq = 10.0
+shader_parameter/wave_width = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wtlpm"]
+font = ExtResource("4_khd1u")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xclb4"]
+font = ExtResource("4_khd1u")
+
+[node name="World" type="Node"]
+script = ExtResource("1_b3ub5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wrhpg")
+
+[node name="Angler" parent="." instance=ExtResource("1_ci3d8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33334, 6.5, 0.753273)
+
+[node name="Shrimps" type="Node3D" parent="."]
+script = ExtResource("3_a6eh5")
+
+[node name="Vents" type="Node3D" parent="."]
+
+[node name="Vent" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.60505, -1.88123, 17.6499)
+
+[node name="Vent2" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(1.0797, 2.2547, -0.0236978, -2.24459, 1.07223, -0.249303, -0.214678, 0.128946, 2.48743, 27.3604, 1.48616, -43.9534)
+
+[node name="Vent3" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(1.38882, 1.90476, 0.832524, 0, 1.00123, -2.29075, -2.07875, 1.27257, 0.556211, -72.2892, 3.79288, -68.6217)
+
+[node name="Vent4" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -47.9427, -1.08467, 9.00208)
+
+[node name="Vent5" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(1.97322, -1.53506, 0, 1.53506, 1.97322, 0, 0, 0, 2.5, -38.8107, -1.88123, 65.6963)
+
+[node name="Vent6" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -27.8133, -1.67514, 92.4911)
+
+[node name="Vent7" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -3.92986, -1.88123, 66.928)
+
+[node name="Vent8" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.46801, 0.398626, 0, -0.38004, 2.35294, 0.754469, 0.1203, -0.744816, 2.38344, 28.7614, 2.0157, 64.7682)
+
+[node name="Vent9" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 48.9979, -1.88123, 84.0063)
+
+[node name="Vent10" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 74.5476, -6.20773, 43.2572)
+
+[node name="Vent11" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 37.5328, -5.57736, 38.4015)
+
+[node name="Vent12" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.32773, 0.84515, 0.342596, -0.911948, 2.15723, 0.87447, 0, -0.939186, 2.31688, 79.0268, -1.88123, -16.5409)
+
+[node name="Vent13" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.46289, 0.429135, 0, -0.429135, 2.46289, 0, 0, 0, 2.5, -19.9668, -0.296617, -53.3829)
+
+[node name="Vent14" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 27.6139, -5.30452, -89.4345)
+
+[node name="Vent15" parent="Vents" instance=ExtResource("4_8bc14")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 76.5182, -7.08089, -65.8535)
+
+[node name="Jellyfishes" type="Node3D" parent="."]
+
+[node name="Jellyfish" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4817, 13.3121, 7.01637)
+
+[node name="Jellyfish2" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1562, 13.3121, -24.5038)
+
+[node name="Jellyfish3" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4972, 13.3121, -3.53854)
+
+[node name="Jellyfish4" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9789, 13.3121, 29.8316)
+
+[node name="Jellyfish5" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.5818, 13.3121, 53.8674)
+
+[node name="Jellyfish6" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.4436, 13.3121, -35.7209)
+
+[node name="Jellyfish7" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9492, 13.3121, -86.6021)
+
+[node name="Jellyfish8" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6723, 13.3121, -60.3811)
+
+[node name="Jellyfish9" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.7773, 13.3121, -29.1656)
+
+[node name="Jellyfish10" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0121, 13.3121, 84.7707)
+
+[node name="Jellyfish11" parent="Jellyfishes" instance=ExtResource("11_pw7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8, 13.3121, 37.3233)
+
+[node name="land" parent="." instance=ExtResource("5_7i2g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.247, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.32549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_right = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_87h35")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameOver/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="GameOverButton" type="Button" parent="CanvasLayer/GameOver/ColorRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_o0j2m")
+text = "Retry?"
+
+[node name="LiveGame" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LiveGame"]
+material = SubResource("ShaderMaterial_t0ht5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/LiveGame"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 244.0
+offset_bottom = 63.0
+text = "Shrimp Eaten: 0 / 25"
+label_settings = SubResource("LabelSettings_wtlpm")
+
+[node name="Instructions" type="Label" parent="CanvasLayer/LiveGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = 50.0
+offset_right = 236.5
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You are dying of old age.
+You must eat shrimp to survive.
+Avoid hazards and use your light
+to sneak and stun your prey"
+label_settings = SubResource("LabelSettings_xclb4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Victory" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Victory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0.14902, 0.32549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Victory/ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_right = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Victory/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "VICTORY!"
+label_settings = SubResource("LabelSettings_87h35")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Victory/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VictoryButton" type="Button" parent="CanvasLayer/Victory/ColorRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_o0j2m")
+text = "Destory the
+shrimp
+once again"
+
+[node name="FpsCounter" parent="CanvasLayer" instance=ExtResource("9_w6rn0")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="UnderwaterAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_q5nf6")
+autoplay = true
+
+[connection signal="dead" from="Angler" to="." method="_on_angler_dead"]
+[connection signal="shrimp_eaten" from="Angler" to="." method="_on_angler_shrimp_eaten"]
+[connection signal="pressed" from="CanvasLayer/GameOver/ColorRect/VBoxContainer/MarginContainer/GameOverButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Victory/ColorRect/VBoxContainer/MarginContainer/VictoryButton" to="." method="_on_retry_button_pressed"]

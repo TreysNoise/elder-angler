@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgqle6po1plol"]
+
+[ext_resource type="Script" path="res://scenes/test_scene.gd" id="1_wns17"]
+[ext_resource type="PackedScene" uid="uid://cbrk4detviko3" path="res://entities/jellyfish/jellyfish.tscn" id="2_opv10"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wns17")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9354, 5.20615)
+fov = 80.0
+
+[node name="Jellyfish" parent="." instance=ExtResource("2_opv10")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

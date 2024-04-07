@@ -1,0 +1,14 @@
+Label
+Marker3D
+Timer
+AudioStreamPlayer3D
+Node3D
+CollisionShape3D
+Area3D
+AudioListener3D
+AudioStreamPlayer
+AnimationPlayer
+ColorRect
+ProgressBar
+MarginContainer
+Control

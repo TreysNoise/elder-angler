@@ -1,0 +1,12 @@
+res://entities/angler/angler.tscn::e92159bbf9f8e3c4203974a824a4e7f6::1712474116::res://.godot/exported/133200997/export-79347c1ec0e470e0ea55feac037370d3-angler.scn
+res://entities/shrimp/shrimp.tscn::888eed358e856dca163f6f7b976096ae::1712474116::res://.godot/exported/133200997/export-5f1f2be1f013decb628de986f1bbda92-shrimp.scn
+res://scenes/world.tscn::c8dc1db696321c8737b97170e53f38ae::1712474148::res://.godot/exported/133200997/export-6b9c1b1fd6ae6f795188dfdc89e222b0-world.scn
+res://entities/vent/vent.tscn::85b9dc13fae376357186540e3a424726::1712472985::res://.godot/exported/133200997/export-bc25ad5cebd7bcaab7aa5f210c13c14b-vent.scn
+res://scenes/land.tscn::b964c783aec4fcc77a980f9eeee4ec7d::1712361858::res://.godot/exported/133200997/export-afcf44c2fe9a6843bef1489f5fe58cce-land.scn
+res://scenes/test_scene.tscn::a7a732a0eb0ff9c9e7d7fda3fe6c85ee::1712468608::res://.godot/exported/133200997/export-448090ec41b8fba68177e789cb5fd95a-test_scene.scn
+res://button_default.tres::20516da141f138d9b690eb0e0c6d9094::1712426595::res://.godot/exported/133200997/export-288a684f84f2e68e404785b1ba271c58-button_default.res
+res://main_theme.tres::911b795e57648cda34cc3eccbd716356::1712426595::res://.godot/exported/133200997/export-20b5b92c2f817caccb6dc24c0a7175e7-main_theme.res
+res://button_hover.tres::be08c0e6fdf9d55452b4a70c1161b711::1712426595::res://.godot/exported/133200997/export-055b7460c0b91da1f6df850c4bd62822-button_hover.res
+res://button_pressed.tres::60f922094c540c4d1ec4bbffa5541a9d::1712426595::res://.godot/exported/133200997/export-9b1d95691ed76749e1660d760b22d7fc-button_pressed.res
+res://scenes/fps_counter.tscn::4f45fe97e0b085aaca2c862359e2d89b::1712427392::res://.godot/exported/133200997/export-e33fbfe6d5411e386d15025c15c68618-fps_counter.scn
+res://entities/jellyfish/jellyfish.tscn::44d1be255d0e87d5d14335b9eaa0b845::1712468859::res://.godot/exported/133200997/export-2c3253fd7a68407a72c8005873c0ccb2-jellyfish.scn
