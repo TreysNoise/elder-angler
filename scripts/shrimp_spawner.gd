@@ -1,12 +1,14 @@
 extends Node3D
 
+@export var num_of_shrimps: float = 40
+
 var packed_shrimp: PackedScene = preload("res://entities/shrimp/shrimp.tscn")
 var min_coord: float = -60
 var max_coord: float = 60
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if get_child_count() < 20:
+	if get_child_count() < num_of_shrimps:
 		var new_shrimp: Shrimp = packed_shrimp.instantiate()
 		add_child(new_shrimp)
 		while true:

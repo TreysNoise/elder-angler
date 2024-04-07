@@ -20,6 +20,7 @@ signal dead
 @onready var charge_audio: AudioStreamPlayer3D = $ChargeAudio
 @onready var flash_audio: AudioStreamPlayer3D = $FlashAudio
 @onready var health_reduction_timer: Timer = $HealthReductionTimer
+@onready var health_label: Label = $CanvasLayer/HealthBar/HealthLabel
 
 
 var stalk_bone_name: String = "stalk.end"
@@ -30,6 +31,7 @@ var max_health: float = 100
 var health: float = 100
 
 var light_is_on: bool = true
+var dying: bool = true
 
 @export_category("Angler Parameters")
 @export var swim_speed: float = 500
@@ -59,8 +61,6 @@ func _input(event: InputEvent) -> void:
 		spring_arm_pivot.rotation.x = clamp(spring_arm_pivot.rotation.x, -PI/4, PI/4)
 	if Input.is_action_pressed("chomp") and chomp_timer.is_stopped():
 		attempt_chomp()
-	if Input.is_action_pressed("charge_light"):
-		light_is_on = false
 	if Input.is_action_just_released("charge_light"):
 		attempt_stun()
 		light_is_on = true
@@ -75,6 +75,7 @@ func _process(delta: float) -> void:
 		if charge_audio.playing == false:
 			charge_audio.play()
 	if current_charge_time >= max_charge:
+		light_is_on = false
 		charged.show()
 	else:
 		charged.hide()
@@ -117,7 +118,8 @@ func attempt_chomp() -> void:
 func take_damage(value:float) -> void:
 	health -= value
 	health_bar.value = health
-	if value >= 2:
+	health_label.text = "Health: %s" % health
+	if value >= 3:
 		ui_animator.play("take_damage")
 		hurt_audio.play()
 	if health <= 0:
@@ -126,4 +128,8 @@ func take_damage(value:float) -> void:
 
 
 func _on_health_reduction_timer_timeout() -> void:
-	take_damage(1)
+	var value = 2 if dying else 0
+	take_damage(value)
+
+func stop_dying() -> void:
+	dying = false

@@ -7,7 +7,7 @@ extends RigidBody3D
 @onready var jet_timer: Timer = $JetTimer
 @onready var view_area: Area3D = $ViewArea
 
-var jet_speed: float = 7
+var jet_speed: float = 12
 
 var stunned: bool = false
 

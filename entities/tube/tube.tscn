@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://g0wvia43i2bm"]
+
+[ext_resource type="Material" uid="uid://cx4mkaqc1hhgb" path="res://entities/tube/tube_material.tres" id="1_r5jhb"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lfayu"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.433013, 1.00001, 2.00001, 0.866026),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"name": "tube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 255, 127, 0, 0, 254, 255, 0, 0, 255, 127, 0, 0, 0, 0, 254, 255, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 0, 0, 255, 63, 254, 255, 254, 255, 0, 0, 255, 63, 0, 0, 255, 255, 0, 0, 254, 191, 254, 255, 0, 0, 0, 0, 254, 191, 0, 0, 0, 0, 0, 0, 254, 191, 254, 255, 255, 255, 0, 0, 254, 191, 0, 0, 254, 255, 0, 0, 255, 63, 254, 255, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h4h03"]
+resource_name = "tube_Plane_004"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.433013, 1.00001, 2.00001, 0.866026),
+"attribute_data": PackedByteArray(255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"material": ExtResource("1_r5jhb"),
+"name": "tube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 255, 127, 255, 255, 254, 255, 0, 0, 255, 127, 255, 255, 0, 0, 254, 255, 255, 127, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 255, 63, 254, 255, 254, 255, 255, 255, 255, 63, 0, 0, 255, 255, 255, 255, 254, 191, 254, 255, 0, 0, 255, 255, 254, 191, 0, 0, 0, 0, 255, 255, 254, 191, 254, 255, 255, 255, 255, 255, 254, 191, 0, 0, 254, 255, 255, 255, 255, 63, 254, 255, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 217, 174, 255, 127, 217, 174, 255, 127, 217, 174, 255, 127, 217, 174, 255, 127, 37, 209, 255, 127, 37, 209, 255, 127, 37, 209, 255, 127, 37, 209, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lfayu")
+
+[node name="tube" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="TubeMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_h4h03")
+skeleton = NodePath("")
