@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		if hurt_box.has_overlapping_bodies():
 			for body in hurt_box.get_overlapping_bodies():
 				if body is Angler and deal_damage_timer.is_stopped():
-					body.take_damage(10)
+					body.take_damage(5)
 					deal_damage_timer.start()
 
 func _on_explode_timer_timeout() -> void:

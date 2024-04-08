@@ -1,8 +1,8 @@
 class_name Angler
 extends CharacterBody3D
 
-signal shrimp_eaten
 signal dead
+signal victory
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var spring_arm_pivot: Node3D = $SpringArmPivot
 @onready var spring_arm_3d: SpringArm3D = $SpringArmPivot/SpringArm3D
@@ -21,14 +21,15 @@ signal dead
 @onready var flash_audio: AudioStreamPlayer3D = $FlashAudio
 @onready var health_reduction_timer: Timer = $HealthReductionTimer
 @onready var health_label: Label = $CanvasLayer/HealthBar/HealthLabel
-
+@onready var chomp_area: Area3D = $ChompArea
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var stalk_bone_name: String = "stalk.end"
 var current_charge_time: float = 0
 var max_charge: float = 1
 var look_sensitivity: float = ProjectSettings.get_setting("player/look_sensitivity")
 var max_health: float = 100
-var health: float = 100
+var health: float = 25
 
 var light_is_on: bool = true
 var dying: bool = true
@@ -37,7 +38,7 @@ var dying: bool = true
 @export var swim_speed: float = 500
 @export var charge_speed: float = 0.5
 @export var turn_speed: float = 2
-@onready var chomp_area: Area3D = $ChompArea
+@export var health_recover_amount: float = 10
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -111,25 +112,24 @@ func attempt_chomp() -> void:
 	for body: Node3D in chomp_area.get_overlapping_bodies() as Array[Node3D]:
 		if body is Shrimp:
 			body.die(self)
-			shrimp_eaten.emit()
 			#heal when you eat a shrimp
-			health = min(max_health, health + 10)
+			health += health_recover_amount
+			if health >= max_health:
+				canvas_layer.hide()
+				victory.emit()
+				dying = false
 
 func take_damage(value:float) -> void:
 	health -= value
 	health_bar.value = health
 	health_label.text = "Health: %s" % health
-	if value >= 3:
+	if value >= 5:
 		ui_animator.play("take_damage")
 		hurt_audio.play()
 	if health <= 0:
 		dead.emit()
 		queue_free()
 
-
 func _on_health_reduction_timer_timeout() -> void:
-	var value = 2 if dying else 0
+	var value = 1 if dying else 0
 	take_damage(value)
-
-func stop_dying() -> void:
-	dying = false

@@ -16,5 +16,4 @@ func _process(delta: float) -> void:
 			new_shrimp.position = random_pos
 			if new_shrimp.is_overlapping_with_area() == false:
 				break
-		print("New Shrimp at %s : %s" % [roundf(new_shrimp.position.x), roundf(new_shrimp.position.z)])
 
